@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="463.0" prefWidth="706.0" style="-fx-background-color: #00e0ff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Invoice.Invoice">
+   <children>
+      <Label layoutX="236.0" layoutY="14.0" text="Invoice Record">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TableView fx:id="invoiceTable" layoutX="80.0" layoutY="87.0" prefHeight="309.0" prefWidth="547.0">
+         <columns>
+            <TableColumn fx:id="invIDCol" prefWidth="82.0" text="Invoice ID" />
+            <TableColumn fx:id="invDateCol" prefWidth="109.0" text="Invoice Date" />
+            <TableColumn fx:id="invCustIDCol" prefWidth="87.0" text="Customer ID" />
+            <TableColumn fx:id="invEmpIDCol" prefWidth="85.0" text="Employee ID" />
+            <TableColumn fx:id="invProdIDCol" prefWidth="75.0" text="Product ID" />
+            <TableColumn fx:id="invProdPriceCol" prefWidth="111.0" text="Product Price" />
+         </columns></TableView>
+      <JFXButton fx:id="closeBUtton" layoutX="513.0" layoutY="411.0" onAction="#closeScene" prefHeight="31.0" prefWidth="114.0" ripplerFill="RED" style="-fx-background-color: silver;" text="Exit" textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font></JFXButton>
+   </children>
+</AnchorPane>

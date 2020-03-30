@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="693.0" prefWidth="863.0" style="-fx-background-color: #00e0ff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Order.Order">
+   <children>
+      <Label layoutX="308.0" layoutY="22.0" text="Customer Orders">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="loadCustomer" buttonType="RAISED" layoutX="208.0" layoutY="331.0" onAction="#loadCust" ripplerFill="#00b6ff" style="-fx-background-color: silver;" text="Load Customer" />
+      <JFXButton fx:id="loadEmployee" buttonType="RAISED" layoutX="442.0" layoutY="331.0" onAction="#loadEmp" ripplerFill="#00b6ff" style="-fx-background-color: silver;" text="Load Employee" />
+      <HBox layoutX="81.0" layoutY="121.0" prefHeight="201.0" prefWidth="701.0" spacing="10.0">
+         <children>
+            <TableView fx:id="custTable" prefHeight="201.0" prefWidth="226.0">
+              <columns>
+                <TableColumn fx:id="custIDCol" prefWidth="75.0" text="Customer ID" />
+                <TableColumn fx:id="custFName" prefWidth="75.0" text="First Name" />
+                  <TableColumn fx:id="custLName" prefWidth="75.0" text="Last Name" />
+              </columns>
+            </TableView>
+            <TableView fx:id="empTable" prefHeight="201.0" prefWidth="225.0">
+               <columns>
+                  <TableColumn fx:id="empIDCol" text="Employee ID" />
+                  <TableColumn fx:id="empFName" prefWidth="70.0" text="First Name" />
+                  <TableColumn fx:id="empLName" prefWidth="75.0" text="Last Name" />
+               </columns>
+            </TableView>
+            <TableView fx:id="prodTable" prefHeight="217.0" prefWidth="226.0">
+              <columns>
+                <TableColumn fx:id="prodIDCol" prefWidth="75.0" text="Prodcut ID" />
+                <TableColumn fx:id="prodNameCol" prefWidth="93.0" text="Product Name" />
+                  <TableColumn fx:id="prodPriceCol" prefWidth="57.0" text="Price" />
+              </columns>
+            </TableView>
+         </children>
+      </HBox>
+      <JFXButton fx:id="createOrder" buttonType="RAISED" layoutX="522.0" layoutY="575.0" onAction="#createOrder" ripplerFill="#00b7ff" style="-fx-background-color: silver;" text="Create Order" />
+      <JFXButton fx:id="loadProd" buttonType="RAISED" layoutX="688.0" layoutY="331.0" onAction="#loadProduct" ripplerFill="#00b6ff" style="-fx-background-color: silver;" text="Load Product" />
+      <BorderPane layoutX="243.0" layoutY="399.0" prefHeight="165.0" prefWidth="364.0" style="-fx-background-color: white; -fx-border-color: teal;">
+         <right>
+            <VBox alignment="CENTER_LEFT" prefHeight="163.0" prefWidth="119.0" spacing="12.0" style="-fx-background-color: silver;" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXComboBox fx:id="empIDbox" focusColor="#00b7ff" prefHeight="25.0" prefWidth="78.0" />
+                  <JFXComboBox fx:id="custIDbox" focusColor="#00b7ff" prefHeight="25.0" prefWidth="78.0" />
+                  <JFXComboBox fx:id="productBox" focusColor="#00b7ff" prefHeight="25.0" prefWidth="78.0" />
+                  <DatePicker fx:id="Date" prefHeight="25.0" prefWidth="104.0" />
+               </children>
+            </VBox>
+         </right>
+         <center>
+            <VBox alignment="CENTER_RIGHT" prefHeight="163.0" prefWidth="109.0" spacing="8.0" style="-fx-background-color: silver;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label prefHeight="30.0" text="Employee ID:" />
+                  <Label prefHeight="30.0" text="Customer ID:" />
+                  <Label prefHeight="30.0" text="Product ID:" />
+                  <Label contentDisplay="BOTTOM" prefHeight="25.0" prefWidth="48.0" text="     Date:" />
+               </children>
+            </VBox>
+         </center>
+         <left>
+            <ImageView fitHeight="163.0" fitWidth="359.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../Image/order.png" />
+               </image>
+               <effect>
+                  <Glow level="1.0" />
+               </effect>
+            </ImageView>
+         </left>
+      </BorderPane>
+      <GridPane alignment="CENTER" gridLinesVisible="true" layoutY="646.0" prefHeight="46.0" prefWidth="863.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <JFXButton fx:id="mainButton" alignment="CENTER" buttonType="RAISED" onAction="#goMain" prefHeight="42.0" prefWidth="215.0" style="-fx-background-color: silver;" text="Main Menu">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="custButton" alignment="CENTER" buttonType="RAISED" onAction="#goCustomer" prefHeight="42.0" prefWidth="215.0" style="-fx-background-color: silver;" text="Customer" GridPane.columnIndex="1">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="empButton" alignment="CENTER" buttonType="RAISED" onAction="#goEmployee" prefHeight="42.0" prefWidth="247.0" style="-fx-background-color: silver;" text="Employee" GridPane.columnIndex="2">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="invoiceButton" alignment="CENTER" buttonType="RAISED" onAction="#showInvoice" prefHeight="42.0" prefWidth="301.0" style="-fx-background-color: silver;" text="Invoice" GridPane.columnIndex="3">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </GridPane>
+      <ImageView fitHeight="95.0" fitWidth="257.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/logo.png" />
+         </image>
+         <effect>
+            <DropShadow blurType="GAUSSIAN" />
+         </effect>
+      </ImageView>
+      <Label fx:id="alertLabel" layoutX="173.0" layoutY="569.0" prefHeight="38.0" prefWidth="332.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
